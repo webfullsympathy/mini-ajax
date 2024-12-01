@@ -10719,3 +10719,46 @@ return jQuery;
 } );
 
 // ここまでJquery
+
+// ここからメイン
+function mini_ajax(miaj_url,miax_contype,miaj_cache,miaj_type,data){
+	if(miaj_contype === "post" || miaj_contype === "get"){
+		void(0)
+	}else{
+		console.error("MiniAjax:通信タイプ(2番目引数)にPOSTかGETを指定してください。\n※値はテキスト形式です。")
+	}
+	
+	if(miaj_cache === "true"){
+		miaj_cache = true
+	}else if(miaj_cache === "false"){
+		miaj_cache = false
+	}else if(miaj_cache === true || miaj_cache === false){
+		void(0)
+	}else{
+		console.error("MiniAjax:キャッシュ設定(3番目引数)に有効なtrue/falseを入力してください。")
+		return
+	}
+	
+	$.ajax({
+		url: miaj_url, //URL
+　		type: miaj_contype, //POST/GET
+　		cache: miaj_cache, //キャッシュ使用
+　		dataType: miaj_type, //data type scriptなどデータタイプ
+　		data: data, //データ
+　	})
+　	.done(function(response) {
+		//通信が成功したときのコールバックの処理を書く
+		console.log("MiniAjax:通信に成功しました。")
+		return response
+　	})
+　	.fail(function(xhr) {
+		//通信が失敗したときのコールバックの処理を書く
+		console.error("MiniAjax:通信に失敗しました。エラー内容：\n" + xhr)
+		return
+　	})
+　	.always(function(xhr, msg) {
+		//通信結果にかかわらず実行する処理を書く
+		console.log("MiniAjax:通信試みました。")
+	});
+}
+// ここまでメイン
