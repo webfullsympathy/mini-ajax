@@ -10721,7 +10721,7 @@ return jQuery;
 // ここまでJquery
 
 // ここからメイン
-function mini_ajax(miaj_url,miax_contype,miaj_cache,miaj_type,data){
+function mini_ajax(miaj_url,miaj_contype,miaj_cache,miaj_type,data){
 	if(miaj_contype === "post" || miaj_contype === "get"){
 		void(0)
 	}else{
@@ -10758,7 +10758,7 @@ function mini_ajax(miaj_url,miax_contype,miaj_cache,miaj_type,data){
 　	})
 　	.always(function(xhr, msg) {
 		//通信結果にかかわらず実行する処理を書く
-		console.log("MiniAjax:通信試みました。")
+		console.log("MiniAjax:通信を試みました。")
 	});
 }
 // ここまでメイン
